@@ -1,0 +1,9 @@
+Codigos: 
+
+yarn create next-app dashgo
+
+yarn add typescript @types/react @types/node -D
+
+yarn dev
+
+yarn add @chakra-ui/react @chakra-ui/core @emotion/react @emotion/styled framer-motion
