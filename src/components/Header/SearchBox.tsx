@@ -2,7 +2,12 @@ import { Flex, Icon, Input } from "@chakra-ui/react";
 import React from "react";
 import { RiSearchLine } from "react-icons/ri";
 
+// interface SearchBoxProps {
+//     showTextSearchBox?: boolean;
+// }
+// export function SearchBox({showTextSearchBox }: SearchBoxProps){
 export function SearchBox(){
+
     return(
         <Flex 
         as = "label"
@@ -21,7 +26,9 @@ export function SearchBox(){
             variant = "unstyled"
             mr = "4"
             px = "4"
-            placeholder = "Buscar na plataforma"
+            // placeholder ={showTextSearchBox? "Buscar na plataforma":""}
+            placeholder ="Buscar na plataforma"
+
             _placeholder ={{color:"gray.400"}}
             />
             <Icon as = {RiSearchLine} fontSize = "20"/>
