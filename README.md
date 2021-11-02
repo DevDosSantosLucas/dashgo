@@ -50,4 +50,4 @@ Nesse repositório foi criado uma interface de um painel administrativo contendo
    Lista de usuários: https://localhosts:3000/user<br>
    Criar usuários: https://localhosts:3000/users/create 
 ---
-      👨🏻‍💻 Desenvolvido por **Lucas Ribeiro dos Santos** junto a **Rocketseat** na **Trilha IGNITE** 
+ 👨🏻‍💻 Desenvolvido por **Lucas Ribeiro dos Santos** junto a **Rocketseat** na **Trilha IGNITE** 
