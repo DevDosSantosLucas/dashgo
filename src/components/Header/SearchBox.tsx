@@ -24,8 +24,8 @@ export function SearchBox(){
             <Input
             color = "gray.50"
             variant = "unstyled"
-            mr = "4"
-            px = "4"
+            mr = {["4","0"]}
+            px = {["4","0"]}
             // placeholder ={showTextSearchBox? "Buscar na plataforma":""}
             placeholder ="Buscar na plataforma"
 
