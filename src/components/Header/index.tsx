@@ -41,7 +41,7 @@ export function Header() {
                 )}
             <Logo />
             {/* <SearchBox showTextSearchBox={isWideVersion}/> */}
-            <SearchBox />
+            {isWideVersion&&<SearchBox />}
 
 
             <Flex   align = "center" ml = "auto" >
