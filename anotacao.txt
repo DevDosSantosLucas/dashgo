@@ -13,3 +13,13 @@ yarn add react-icons
 # api de graficos:
 yarn add apexcharts react-apexcharts 
 
+
+#API de BACKEND ficticio
+yarn add miragejs -D
+
+#API de gerar dados ficticios
+yarn add @types/faker -D
+
+#
+yarn add react-query
+
