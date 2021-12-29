@@ -2,6 +2,7 @@
 <h2> Ignite - Chapter IV -Construindo interfaces do futuro </h2>
 
 Nesse repositório foi criado uma interface de um painel administrativo contendo fluxo de autenticação, dashboard, listagem e cadastro, usando Chakra UI no Next.js.
+Utiliza-se o React Query para melhorar a experiência de uso da aplicação criando uma camada de cache de dados entre o front-end e back-end.
 
 
 
