@@ -13,10 +13,17 @@ import { getUsers, useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
 import { GetServerSideProps } from "next";
 
-export default function UserList() {
+
+// type User= {
+//     id: string;
+//     name: string;
+//     email: string;
+//     createdAt: string;
+//   }
+export default function UserList( ) {
     const [page,setPage] = useState(1)
     const {data,isLoading,isFetching, error}= useUsers(page,{
-        initialData: users,
+        // initialData: user,
     })
  
     const isWideVersion = useBreakpointValue({
@@ -130,11 +137,11 @@ return (
 
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const {users,totalCount} = await getUsers(1)
-    return{
-        props: {
-            users,
-        }
-    }
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+//     const {users,totalCount} = await getUsers(1)
+//     return{
+//         props: {
+//             users,
+//         }
+//     }
+// }
