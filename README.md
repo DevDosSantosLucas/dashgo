@@ -42,7 +42,7 @@ Utiliza-se o React Query para melhorar a experiência de uso da aplicação cria
    https://localhosts:3000/
    
 ---
-   OBS: Não há existencia de APi no desenvolvimento do projet, porém a dashboard só pode ser acessada pelo link
+   OBS: A API é Ficticia, Não há existencia de APi(em backend) no desenvolvimento do projeto, porém a dashboard só pode ser acessada pelo link.
    
 ---
    ROTAS: <br>
