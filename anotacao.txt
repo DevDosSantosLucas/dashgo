@@ -1,6 +1,6 @@
 Codigos: 
 
-yarn create next-app dashgo
+move up
 
 yarn add typescript @types/react @types/node -D
 

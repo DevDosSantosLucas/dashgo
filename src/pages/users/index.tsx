@@ -1,5 +1,5 @@
-import { Box,Flex ,Spinner,Heading,Button, Icon, Table, Thead, Tr, Th,Checkbox, Tbody, Td,Text, useBreakpointValue} from "@chakra-ui/react";
-import Link from "next/link";
+import { Box,Flex ,Spinner,Heading,Button, Icon, Table, Thead, Tr, Th,Checkbox, Tbody, Td,Text, useBreakpointValue, Link} from "@chakra-ui/react";
+import NextLink from "next/link";
 import React, { useState } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { useEffect } from "react";
@@ -10,6 +10,7 @@ import { Sidebar } from "../../components/Sidebar";
 import { useRouter } from "next/router";
 import { api } from "../../services/api";
 import { useUsers } from "../../services/hooks/useUsers";
+import { queryClient } from "../../services/queryClient";
 
 export default function UserList() {
     const [page,setPage] = useState(1)
@@ -20,6 +21,15 @@ export default function UserList() {
         lg:true
     })
 
+    async function handlePrefetchUser(userId: number) {
+
+        await queryClient.prefetchQuery(['user',userId],async () => {
+            const response =await api.get(`users/${userId}`)
+            return response.data;
+        },{
+            staleTime: 1000 * 60 * 10 //10 minutos
+        })
+    }
     // useEffect(()=>{
     //     fetch('http://localhost:3000/api/users')
     //     .then(response =>response.json())
@@ -37,12 +47,12 @@ return (
                     <Heading size = "lg" fontWeight="normal">Usuários
                     {!isLoading && isFetching && <Spinner size="sm" color = "gray.500" ml="4"/>}
                     </Heading>
-                    <Link href="/users/create" passHref>
+                    <NextLink href="/users/create" passHref>
                     <Button as = "a" size="sm" fontSize="small" colorScheme ="pink" 
                             leftIcon = {<Icon as={RiAddLine} fontSize="20"/>}>
                         Criar novo
                     </Button>
-                    </Link>
+                    </NextLink>
 
                 </Flex>
 
@@ -77,7 +87,9 @@ return (
                             </Td>
                             <Td>
                                 <Box>
-                                    <Text fontWeight="bold">{user.name}</Text>
+                                   <Link color="purple.400" onMouseEnter={() => handlePrefetchUser(user.id)}>  
+                                   <Text fontWeight="bold">{user.name}</Text>
+                                   </Link>
                                     <Text fontSize="sm" color="gray.300">{user.email}</Text>
                                 </Box>
                             </Td>
