@@ -9,19 +9,22 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 import { useRouter } from "next/router";
 import { api } from "../../services/api";
-import { useUsers } from "../../services/hooks/useUsers";
+import { getUsers, useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
+import { GetServerSideProps } from "next";
 
 export default function UserList() {
     const [page,setPage] = useState(1)
-    const {data,isLoading,isFetching, error}= useUsers(page)
+    const {data,isLoading,isFetching, error}= useUsers(page,{
+        initialData: users,
+    })
  
     const isWideVersion = useBreakpointValue({
         base: false,
         lg:true
     })
 
-    async function handlePrefetchUser(userId: number) {
+    async function handlePrefetchUser(userId: string) {
 
         await queryClient.prefetchQuery(['user',userId],async () => {
             const response =await api.get(`users/${userId}`)
@@ -123,4 +126,15 @@ return (
 
     </Box>
     );
+}
+
+
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const {users,totalCount} = await getUsers(1)
+    return{
+        props: {
+            users,
+        }
+    }
 }
